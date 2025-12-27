@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Excel → XML Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="assets/css/output.css" rel="stylesheet" />
+    <!-- NORMAL CSS -->
+    <style>
+      .tabs {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+      }
+      .tab-btn {
+        padding: 8px 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        background: #fff;
+        cursor: pointer;
+      }
+      .tab-btn.active {
+        background: #2563eb;
+        color: #fff;
+        border-color: #2563eb;
+      }
+
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal.show {
+        display: flex;
+      }
+      .modal-box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        width: 360px;
+      }
+      .mb-5 {
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen md:p-6 p-2">
+    <div class="card max-w-7xl mx-auto bg-white p-6 rounded-xl shadow">
+      <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+
+      <!-- Excel Upload -->
+      <input
+        title="Select a Excel file to covert xml and use"
+        type="file"
+        accept=".xlsx"
+        onchange="convertExcel(this)"
+        class="mb-4"
+      />
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" onclick="loadSheet('sheet1.xml', this)">
+          Sheet 1
+        </button>
+        <button class="tab-btn" onclick="loadSheet('sheet2.xml', this)">
+          Sheet 2
+        </button>
+        <button class="tab-btn" onclick="loadSheet('sheet3.xml', this)">
+          Sheet 3
+        </button>
+        <button class="tab-btn" onclick="loadSheet('sheet4.xml', this)">
+          Sheet 4
+        </button>
+      </div>
+
+      <!-- Search / Export / Rows -->
+      <div class="flex justify-between items-center gap-3 mb-4">
+        <input
+          onkeyup="searchTable(this.value)"
+          placeholder="Search..."
+          class="border p-2 rounded"
+        />
+
+        <button
+          title="Export Excel"
+          role="button"
+          onclick="exportExcel()"
+          class="px-4 py-2 bg-green-600 text-white flex items-center gap-3 rounded"
+        >
+          <span>Export</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-file-spreadsheet"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v4h10V2a1 1 0 0 0-1-1zm9 6h-3v2h3zm0 3h-3v2h3zm0 3h-3v2h2a1 1 0 0 0 1-1zm-4 2v-2H6v2zm-4 0v-2H3v1a1 1 0 0 0 1 1zm-2-3h2v-2H3zm0-3h2V7H3zm3-2v2h3V7zm3 3H6v2h3z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto border rounded">
+        <table class="min-w-full text-sm">
+          <thead class="bg-gray-100 sticky top-0"></thead>
+          <tbody class="divide-y"></tbody>
+        </table>
+      </div>
+      <!-- Pagination -->
+      <div
+        class="flex md:flex-row flex-col md:justify-between gap-[10px] border-t mt-4"
+      >
+        <div class="mt-5">
+          <label class="pe-[3px]"> Select</label>
+          <select
+            onchange="changeRowsPerPage(this.value)"
+            class="border p-2 rounded"
+          >
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="all">All</option>
+          </select>
+        </div>
+        <div
+          id="pagination"
+          class="sticky bottom-0 bg-white p-3 flex gap-2"
+        ></div>
+      </div>
+
+      <p id="emptyState" class="hidden text-center mt-4 text-gray-500">
+        No data found
+      </p>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-box">
+        <div class="flex justify-between items-center mb-5">
+          <h3 class="font-bold">Row Details</h3>
+          <button onclick="closeModal()" class="px-4 py-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              class="bi bi-x-lg"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+  </body>
+</html>
