@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<records>
+
+  <row>
+    <id>EMP001</id>
+    <name>Kaliraj</name>
+    <role>Frontend Developer</role>
+    <department>Engineering</department>
+    <experience>3</experience>
+    <email>kaliraj@gmail.com</email>
+    <phone>8940809477</phone>
+    <location>Chennai</location>
+    <salary>700000</salary>
+    <status>Active</status>
+  </row>
+
+  <row>
+    <id>EMP002</id>
+    <name>Arun</name>
+    <role>Backend Developer</role>
+    <department>Engineering</department>
+    <experience>4</experience>
+    <email>arun@gmail.com</email>
+    <phone>9876543210</phone>
+    <location>Bangalore</location>
+    <salary>850000</salary>
+    <status>Active</status>
+  </row>
+
+  <row>
+    <id>EMP003</id>
+    <name>Priya</name>
+    <role>UI Designer</role>
+    <department>Design</department>
+    <experience>2</experience>
+    <email>priya@gmail.com</email>
+    <phone>9123456780</phone>
+    <location>Hyderabad</location>
+    <salary>600000</salary>
+    <status>Inactive</status>
+  </row>
+
+  <row>
+    <id>EMP004</id>
+    <name>Suresh</name>
+    <role>QA Engineer</role>
+    <department>Testing</department>
+    <experience>5</experience>
+    <email>suresh@gmail.com</email>
+    <phone>9988776655</phone>
+    <location>Pune</location>
+    <salary>750000</salary>
+    <status>Active</status>
+  </row>
+
+  <row>
+    <id>EMP005</id>
+    <name>Meena</name>
+    <role>HR Manager</role>
+    <department>Human Resources</department>
+    <experience>6</experience>
+    <email>meena@gmail.com</email>
+    <phone>9012345678</phone>
+    <location>Chennai</location>
+    <salary>900000</salary>
+    <status>Active</status>
+  </row>
+
+  <row>
+    <id>EMP006</id>
+    <name>Ravi</name>
+    <role>DevOps Engineer</role>
+    <department>Infrastructure</department>
+    <experience>4</experience>
+    <email>ravi@gmail.com</email>
+    <phone>9345678123</phone>
+    <location>Coimbatore</location>
+    <salary>820000</salary>
+    <status>Active</status>
+  </row>
+
+  <row>
+    <id>EMP007</id>
+    <name>Anitha</name>
+    <role>Business Analyst</role>
+    <department>Analytics</department>
+    <experience>3</experience>
+    <email>anitha@gmail.com</email>
+    <phone>9456123789</phone>
+    <location>Trichy</location>
+    <salary>680000</salary>
+    <status>Inactive</status>
+  </row>
+
+  <row>
+    <id>EMP008</id>
+    <name>Vignesh</name>
+    <role>Mobile App Developer</role>
+    <department>Engineering</department>
+    <experience>2</experience>
+    <email>vignesh@gmail.com</email>
+    <phone>9567812345</phone>
+    <location>Madurai</location>
+    <salary>620000</salary>
+    <status>Active</status>
+  </row>
+
+  <row>
+    <id>EMP009</id>
+    <name>Karthik</name>
+    <role>Product Manager</role>
+    <department>Product</department>
+    <experience>7</experience>
+    <email>karthik@gmail.com</email>
+    <phone>9876123450</phone>
+    <location>Delhi</location>
+    <salary>1200000</salary>
+    <status>Active</status>
+  </row>
+
+  <row>
+    <id>EMP010</id>
+    <name>Divya</name>
+    <role>Data Scientist</role>
+    <department>Data</department>
+    <experience>5</experience>
+    <email>divya@gmail.com</email>
+    <phone>9988123456</phone>
+    <location>Noida</location>
+    <salary>1100000</salary>
+    <status>Active</status>
+  </row>
+
+</records>
